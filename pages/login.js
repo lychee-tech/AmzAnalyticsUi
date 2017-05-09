@@ -4,6 +4,7 @@ import {Form,Header,Button} from "semantic-ui-react";
 
 import {initStore} from "./components/login/store";
 import withRedux from 'next-redux-wrapper'
+import { Field, reduxForm } from 'redux-form'
 
 
 class Login extends Component {

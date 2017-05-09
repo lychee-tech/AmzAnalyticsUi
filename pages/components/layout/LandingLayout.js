@@ -1,9 +1,10 @@
 import React from "react";
 import Head from "next/head";
-import Link from 'next/link'
-import {Menu, Dropdown, Icon,Image} from "semantic-ui-react";
+import Link from "next/link";
+import {Menu, Dropdown, Icon, Image} from "semantic-ui-react";
 
-export default ({children})=> (
+export default ({children}) => (
+
     <div className="canvas">
         <Head>
             <link rel="stylesheet"
@@ -12,19 +13,19 @@ export default ({children})=> (
         </Head>
 
         <Menu pointing className="ui inverted main" fixed="top">
-            <div className="ui container aligned right" >
+            <div className="ui container aligned right">
                 <Menu.Item>
                     <Image src="/static/images/HandAcc-logo.png" size="tiny"/>
                     <Link href="/">
-                       <a> <Icon name="home" size="large"></Icon> </a>
+                        <a> <Icon name="home" size="large"></Icon> </a>
                     </Link>
                 </Menu.Item>
                 <Menu.Menu position='right'>
                     <Menu.Item>
-                      <Link href="/register"> Register </Link>
+                        <Link href="/register"> Register </Link>
                     </Menu.Item>
                     <Menu.Item>
-                      <Link href="/login"> Login </Link>
+                        <Link href="/login"> Login </Link>
                     </Menu.Item>
                 </Menu.Menu>
             </div>

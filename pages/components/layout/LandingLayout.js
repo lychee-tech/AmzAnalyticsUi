@@ -10,6 +10,8 @@ export default ({children}) => (
             <link rel="stylesheet"
                   href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.2/semantic.css"></link>
             <link rel="stylesheet" href="/static/layout.css"></link>
+            <link rel="stylesheet" href="/static/vendor/nprogress/nprogress.css"></link>
+
         </Head>
 
         <Menu pointing className="ui inverted main" fixed="top">

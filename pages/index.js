@@ -1,10 +1,20 @@
 import React , {Component} from "react";
 import LandingLayout from "./components/layout/LandingLayout";
 
+import NProgress from "nprogress";
 
-class index extends Component {
+class Index extends Component {
+    componentWillMount(){
+       if(process.browser) {
+           NProgress.start();
+       }
+    }
+
+    componentDidMount(){
+        NProgress.done();
+
+    }
     render() {
-
         return (
             <LandingLayout>
 
@@ -16,4 +26,4 @@ class index extends Component {
 }
 
 
-export default index;
+export default Index;

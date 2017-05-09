@@ -8,21 +8,28 @@ var LoginForm = ({handleSubmit}) => {
         <div>
             <Header as='h2' className="center aligned"> User Login </Header>
 
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <label htmlFor="firstName">First Name</label>
-                    <Field name="firstName" component="input" type="text"/>
-                </div>
-                <div>
-                    <label htmlFor="lastName">Last Name</label>
-                    <Field name="lastName" component="input" type="text"/>
-                </div>
-                <div>
-                    <label htmlFor="email">Email</label>
-                    <Field name="email" component="input" type="email"/>
-                </div>
-                <button>Submit</button>
-            </form>
+            <Form onSubmit={handleSubmit} className="login-form" noValidate>
+                <Field name="account" component={(props)=>(
+                    <Form.Input label="Account" value={props.input.value}
+                                onChange={(param,data) => props.input.onChange(data.value)}
+                                placeholder={props.label} required />
+                )}/>
+
+                <Field name="password" component={(props)=>(
+                    <Form.Input label="Password"  value={props.input.value}
+                                onChange={(param,data) => props.input.onChange(data.value)}
+                                placeholder={props.label} type="password" required/>
+                )}/>
+
+
+                <Field name="confirmPassword" component={(props)=> (
+                    <Form.Input label="Confirm password"  value={props.input.value}
+                                onChange={(param,data) => props.input.onChange(data.value)}
+                                placeholder={props.label} type="password" required/>
+                )}/>
+
+                <Button className="ui right floated primary button" type="submit">Submit</Button>
+            </Form>
         </div>
     )
 };

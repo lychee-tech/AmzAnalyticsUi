@@ -9,23 +9,18 @@ var LoginForm = ({handleSubmit}) => {
             <Header as='h2' className="center aligned"> User Login </Header>
 
             <Form onSubmit={handleSubmit} className="login-form" noValidate>
-                <Field name="account" component={(props)=>(
-                    <Form.Input label="Account" value={props.input.value}
-                                onChange={(param,data) => props.input.onChange(data.value)}
-                                placeholder={props.label} required />
+                <Field name="account" component={account=>(
+                    <Form.Input label="Account" {... account.input} required />
                 )}/>
 
-                <Field name="password" component={(props)=>(
-                    <Form.Input label="Password"  value={props.input.value}
-                                onChange={(param,data) => props.input.onChange(data.value)}
-                                placeholder={props.label} type="password" required/>
-                )}/>
+                <Field name="password" component={password=>(
+                        <Form.Input label="Password"  {... password.input} type="password" required/>
+                    )
+                }/>
 
 
-                <Field name="confirmPassword" component={(props)=> (
-                    <Form.Input label="Confirm password"  value={props.input.value}
-                                onChange={(param,data) => props.input.onChange(data.value)}
-                                placeholder={props.label} type="password" required/>
+                <Field name="confirmPassword" component={confirmPassword=> (
+                    <Form.Input label="Confirm password" {... confirmPassword.input} type="password" required/>
                 )}/>
 
                 <Button className="ui right floated primary button" type="submit">Submit</Button>

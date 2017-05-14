@@ -4,12 +4,17 @@ import withRedux from "next-redux-wrapper";
 import LandingLayout from "./components/layout/LandingLayout";
 import LoginForm from "./components/login/LoginForm";
 
+import {SubmissionError} from "redux-form"
 
 import NProgress from "nprogress";
 
 
 var submit = (values)=> {
-    console.log(values)
+    return new Promise(function(resolve, reject){
+        setTimeout(()=>{
+            reject(new SubmissionError({_error: 'The account/password is wrong!' }));
+        }, 1000)
+    })
 };
 
 

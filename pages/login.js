@@ -9,10 +9,10 @@ import {SubmissionError} from "redux-form"
 import NProgress from "nprogress";
 
 
-var submit = (values)=> {
+var submit = (value)=> {
     return new Promise(function(resolve, reject){
         setTimeout(()=>{
-            reject(new SubmissionError({_error: 'The account/password is wrong!' }));
+            reject(new SubmissionError({_error: 'Can not find the account and password combination' }));
         }, 1000)
     })
 };

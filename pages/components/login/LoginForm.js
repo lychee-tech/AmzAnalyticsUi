@@ -2,22 +2,19 @@ import React from "react";
 import {Form, Header, Button,Message} from "semantic-ui-react";
 import {Field, reduxForm} from "redux-form";
 import {validateAccount, validatePassword} from "./validator";
+import {renderInputField} from "../shared/render";
 
 
-var LoginForm = ({handleSubmit, submitting, error, pristine, invalid}) => {
+
+var LoginForm = ({handleSubmit, submitting, error, invalid}) => {
     return (
         <div>
             <Header as='h2' className="center aligned"> User Login </Header>
 
             <Form onSubmit={handleSubmit} className="login-form" noValidate error={!!error} loading= {submitting}>
-                <Field name="account" component={ account=>(
-                    <Form.Input label="Account" {... account.input}  />
-                )} validate={validateAccount}/>
+                <Field name="account" l component={props=>renderInputField({label:"Account", type:"text", ...props})}  validate={validateAccount}/>
 
-                <Field name="password" component={ password=>(
-                        <Form.Input label="Password"  {... password.input} type="password" />
-                    )
-                }  validate={validatePassword} />
+                <Field name="password" component={(props)=>renderInputField({label:"Password", type:"password", ...props})} validate={validatePassword} />
 
 
                 <Message
@@ -26,13 +23,11 @@ var LoginForm = ({handleSubmit, submitting, error, pristine, invalid}) => {
                 />
 
                 <Form.Field>
-                    <Button  disabled={pristine||submitting || invalid} className="ui right floated  primary button" type="submit">Submit</Button>
+                    <Button  disabled={submitting || invalid} className="ui right floated  primary button" type="submit">Submit</Button>
                 </Form.Field>
 
 
             </Form>
-
-
 
         </div>
     )

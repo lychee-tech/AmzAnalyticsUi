@@ -11,14 +11,11 @@ var constraints ={
 
 export const validateAccount=(value) => {
     var result= validate({account:value}, constraints) || {};
-    var error =  result["account"];
-    console.log(error);
-    return error;
+    return  result["account"];
 };
 
 
 export const validatePassword=(value) => {
     var result= validate({password:value}, constraints) || {};
-    var error =  result["password"];
-    console.log(error)
+    return result["password"];
 };

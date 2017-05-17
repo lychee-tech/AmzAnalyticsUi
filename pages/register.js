@@ -1,8 +1,21 @@
 import React, {Component} from "react";
+import {initStore} from "./components/register/store";
+import withRedux from "next-redux-wrapper";
 import LandingLayout from "./components/layout/LandingLayout";
-import {Form, Header, Button} from "semantic-ui-react";
+import RegisterForm from "./components/register/RegisterForm";
+
+import {SubmissionError} from "redux-form"
 
 import NProgress from "nprogress";
+
+
+var submit = (value)=> {
+    return new Promise(function(resolve, reject){
+        setTimeout(()=>{
+            reject(new SubmissionError({_error: 'Can not find the account and password combination' }));
+        }, 1000)
+    })
+};
 
 
 class Register extends Component {
@@ -17,47 +30,15 @@ class Register extends Component {
 
     }
 
+
     render() {
         return (
             <LandingLayout>
-                <div>
-                    <Header as='h2' className="center aligned"> New User Registration </Header>
-
-                    <Form className="register-form">
-                        <Form.Input label="Account name" required/>
-
-                        <Form.Field required>
-                            <label>Name</label>
-
-                            <Form.Group widths='equal'>
-                                <Form.Input placeholder='First name'/>
-                                <Form.Input placeholder='Last name'/>
-                            </Form.Group>
-                        </Form.Field>
-
-                        <Form.Field required>
-                            <label> Contact </label>
-                            <Form.Group widths='equal'>
-                                <Form.Input placeholder='Email'/>
-                                <Form.Input placeholder='Phone'/>
-                            </Form.Group>
-                        </Form.Field>
-
-                        <Form.Input label="Password" type="password" required/>
-
-                        <Form.Input label="Confirm password" type="password" required/>
-
-
-                        <Button className="ui right floated primary button">Submit</Button>
-                    </Form>
-
-                </div>
-
-
+                <RegisterForm onSubmit={submit}/>
             </LandingLayout>
-
         )
     }
 }
 
-export default Register;
+
+export default withRedux(initStore, null, null)(Register);

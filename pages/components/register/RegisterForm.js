@@ -10,7 +10,7 @@ var RegisterForm = ({handleSubmit, submitting, error, invalid}) => {
         <div>
             <Header as='h2' className="center aligned"> New User Registration </Header>
 
-            <Form onSubmit={handleSubmit} className="login-form" noValidate error={!!error} loading= {submitting}>
+            <Form onSubmit={handleSubmit} className="register-form" noValidate error={!!error}  loading= {submitting}>
 
                 <Form.Field required>
                     <label>Account</label>

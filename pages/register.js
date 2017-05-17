@@ -12,7 +12,7 @@ import NProgress from "nprogress";
 var submit = (value)=> {
     return new Promise(function(resolve, reject){
         setTimeout(()=>{
-            reject(new SubmissionError({_error: 'Can not find the account and password combination' }));
+            reject(new SubmissionError({_error: 'registration failed' }));
         }, 1000)
     })
 };

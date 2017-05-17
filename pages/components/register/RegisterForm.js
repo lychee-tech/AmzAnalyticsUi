@@ -3,7 +3,7 @@ import {Form, Header, Button,Message} from "semantic-ui-react";
 import {Field, reduxForm} from "redux-form";
 import {renderInputField} from "../shared/render";
 
-
+import {validateAccount, validatePassword, validateConfirmPassword} from "./validators";
 
 var RegisterForm = ({handleSubmit, submitting, error, invalid}) => {
     return (
@@ -14,7 +14,7 @@ var RegisterForm = ({handleSubmit, submitting, error, invalid}) => {
 
                 <Form.Field required>
                     <label>Account</label>
-                    <Field name="account"  label="Account name" type="text" component={renderInputField}   />
+                    <Field name="account" label="Account name" type="text" component={renderInputField} validate={validateAccount}  />
                 </Form.Field>
 
 
@@ -32,21 +32,21 @@ var RegisterForm = ({handleSubmit, submitting, error, invalid}) => {
                     <label>Contact</label>
 
                     <Form.Group widths='equal'>
-                        <Field name="email"  placeholder="email" type="text" component={renderInputField}  />
-                        <Field name="phone" placeholder="phone"  type="phone" component={renderInputField}  />
+                        <Field name="email"  placeholder="email" type="text" component={renderInputField}  validate={} />
+                        <Field name="phone" placeholder="phone"  type="phone" component={renderInputField}  validate={}/>
                     </Form.Group>
                 </Form.Field>
 
 
                 <Form.Field required>
                     <label>Password</label>
-                    <Field name="password"   type="password" component={renderInputField}  />
+                    <Field name="password"   type="password" component={renderInputField}  validate={validatePassword} />
                 </Form.Field>
 
 
                 <Form.Field required>
                     <label>Confirm password</label>
-                    <Field name="confirmPassword"  type="password" component={renderInputField}  />
+                    <Field name="confirmPassword"  type="password" component={renderInputField} validate={validateConfirmPassword} />
                 </Form.Field>
 
 
@@ -55,10 +55,9 @@ var RegisterForm = ({handleSubmit, submitting, error, invalid}) => {
                     content={error}
                 />
 
-                <Form.Field>
-                    <Button  disabled={submitting || invalid} className="ui right floated  primary button" type="submit">Submit</Button>
+                <Form.Field className="ui right aligned">
+                    <Button  disabled={submitting || invalid} className="ui   primary button" type="submit">Submit</Button>
                 </Form.Field>
-
 
             </Form>
 

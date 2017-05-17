@@ -1,4 +1,6 @@
 import validate from "validate.js";
+validate.validators.presence.message = "is required";
+
 
 var constraints ={
     account: {

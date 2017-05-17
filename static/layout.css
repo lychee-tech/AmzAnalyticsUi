@@ -35,3 +35,7 @@ html,body {
     max-width: 500px !important;
     margin:50px auto 10px;
 }
+
+.ui.right.aligned {
+    text-align: right;
+}

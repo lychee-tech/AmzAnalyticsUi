@@ -11,15 +11,19 @@ var RegisterForm = ({handleSubmit, submitting, error, invalid}) => {
             <Header as='h2' className="center aligned"> New User Registration </Header>
 
             <Form onSubmit={handleSubmit} className="login-form" noValidate error={!!error} loading= {submitting}>
-                <Field name="account"  component={props=>renderInputField({label:"Account name", type:"text", required:true, ...props})}   />
+
+                <Form.Field required>
+                    <label>Account</label>
+                    <Field name="account"  label="Account name" type="text" component={renderInputField}   />
+                </Form.Field>
 
 
                 <Form.Field>
                     <label>Name</label>
 
                     <Form.Group widths='equal'>
-                        <Field name="firstName"  component={props=>renderInputField({label:"", placeholder:"first name", type:"text", ...props})}  />
-                        <Field name="lastName" component={props=>renderInputField({label:"", placeholder:"last name", type:"text", ...props})}  />
+                        <Field name="firstName" placeholder="first name" type="text" component={renderInputField}  />
+                        <Field name="lastName" placeholder="last name"  type="text" component={renderInputField}  />
                     </Form.Group>
                 </Form.Field>
 
@@ -28,15 +32,22 @@ var RegisterForm = ({handleSubmit, submitting, error, invalid}) => {
                     <label>Contact</label>
 
                     <Form.Group widths='equal'>
-                        <Field name="email"  component={props=>renderInputField({label:"", placeholder:"email", type:"text", ...props})}  />
-                        <Field name="phone" component={props=>renderInputField({label:"", placeholder:"phone",type:"text", ...props})}  />
+                        <Field name="email"  placeholder="email" type="text" component={renderInputField}  />
+                        <Field name="phone" placeholder="phone"  type="phone" component={renderInputField}  />
                     </Form.Group>
                 </Form.Field>
 
 
-                <Field name="password"  component={props=>renderInputField({label:"Password", required:true, type:"password", ...props})}  />
+                <Form.Field required>
+                    <label>Password</label>
+                    <Field name="password"   type="password" component={renderInputField}  />
+                </Form.Field>
 
-                <Field name="confirmPassword"  component={props=>renderInputField({label:"Confirm password", required:true, type:"password", ...props})}  required />
+
+                <Form.Field required>
+                    <label>Confirm password</label>
+                    <Field name="confirmPassword"  type="password" component={renderInputField}  />
+                </Form.Field>
 
 
                 <Message

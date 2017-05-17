@@ -12,10 +12,16 @@ var LoginForm = ({handleSubmit, submitting, error, invalid}) => {
             <Header as='h2' className="center aligned"> User Login </Header>
 
             <Form onSubmit={handleSubmit} className="login-form" noValidate error={!!error} loading= {submitting}>
-                <Field name="account" l component={props=>renderInputField({label:"Account", type:"text", ...props})}  validate={validateAccount}/>
 
-                <Field name="password" component={(props)=>renderInputField({label:"Password", type:"password", ...props})} validate={validatePassword} />
+                <Form.Field>
+                    <label>Account </label>
+                    <Field name="account" type="text" component={renderInputField}  validate={validateAccount}/>
+                </Form.Field>
 
+                <Form.Field>
+                    <label>Password</label>
+                    <Field name="password" type="password" component={renderInputField} validate={validatePassword} />
+                </Form.Field>
 
                 <Message
                     error
@@ -25,7 +31,6 @@ var LoginForm = ({handleSubmit, submitting, error, invalid}) => {
                 <Form.Field>
                     <Button  disabled={submitting || invalid} className="ui right floated  primary button" type="submit">Submit</Button>
                 </Form.Field>
-
 
             </Form>
 

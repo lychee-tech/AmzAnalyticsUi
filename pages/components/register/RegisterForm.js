@@ -3,7 +3,7 @@ import {Form, Header, Button,Message} from "semantic-ui-react";
 import {Field, reduxForm} from "redux-form";
 import {renderInputField} from "../shared/render";
 
-import {validateAccount, validatePassword, validateConfirmPassword} from "./validators";
+import {validateAccount, validateContact, validatePassword, validateConfirmPassword} from "./validators";
 
 var RegisterForm = ({handleSubmit, submitting, error, invalid}) => {
     return (
@@ -32,21 +32,21 @@ var RegisterForm = ({handleSubmit, submitting, error, invalid}) => {
                     <label>Contact</label>
 
                     <Form.Group widths='equal'>
-                        <Field name="email"  placeholder="email" type="text" component={renderInputField}  validate={} />
-                        <Field name="phone" placeholder="phone"  type="phone" component={renderInputField}  validate={}/>
+                        <Field name="email"  placeholder="email" type="text"  component={renderInputField}  validate={(value,values)=>validateContact(values['email'], values['phone'])} />
+                        <Field name="phone"  placeholder="phone" type="phone" component={renderInputField}  validate={(value,values)=>validateContact(values['email'], values['phone'])} />
                     </Form.Group>
                 </Form.Field>
 
 
                 <Form.Field required>
                     <label>Password</label>
-                    <Field name="password"   type="password" component={renderInputField}  validate={validatePassword} />
+                    <Field name="password"   type="password" component={renderInputField}      validate={validatePassword} />
                 </Form.Field>
 
 
                 <Form.Field required>
                     <label>Confirm password</label>
-                    <Field name="confirmPassword"  type="password" component={renderInputField} validate={validateConfirmPassword} />
+                    <Field name="confirmPassword"  type="password" component={renderInputField} validate={(value, values)=>validateConfirmPassword(values["password"], values["confirmPassword"])} />
                 </Form.Field>
 
 

@@ -1,6 +1,19 @@
-import {Form, Header, Button,Message} from "semantic-ui-react";
+import {Form} from "semantic-ui-react";
 
 
-export const renderInputField=({input, placeholder="", type, meta: {touched, error, warning}}) => (
-    <Form.Input {...input}  placeholder={placeholder} type={type}   />
+const renderError = (error) => {
+    console.log(error);
+
+    return (!!error && error.indexOf("is required") < 0 ) ? (
+        <div className="ui  pointing  up red basic label">
+            {error}
+        </div>
+    ) : "";
+};
+
+export const renderInputField = ({input, placeholder = "", type, meta: {touched, error, warning}}) => (
+    <div  className="ui field">
+        <Form.Input {...input} placeholder={placeholder} type={type}/>
+        {renderError(error)}
+    </div>
 );

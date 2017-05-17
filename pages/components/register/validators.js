@@ -1,23 +1,10 @@
 import validate from "validate.js";
 validate.validators.presence.message = "is required";
 
-var constraints = {
-    account: {
-        presence: true,
-    },
-    email:{
-        email:true
-    },
-    password: {
-        presence: true
-    },
-    confirmPassword: {
-        presence: true
-    }
-};
+
 
 export const validateAccount = (value) => {
-    var result = validate({account: value}, constraints) || {};
+    var result = validate({account: value}, {account:{presence:true}}, {format: "flat"}) || {};
     return result["account"];
 };
 
@@ -25,27 +12,34 @@ export const validateAccount = (value) => {
 export const validateContact = (email, phone) => {
     email=(email||"").trim();
     phone=(phone||"").trim();
+
+
     if (email==='' && phone==='') {
         return "is required"
     }
 
-
-
+    return validate({email: email}, {email: {email:true}}, {format: "flat"}) || {};
 
 };
 
-
-export const validatePassword = (value) => {
-    var result = validate({password: value}, constraints) || {};
+export const validatePassword =(value) => {
+    var result = validate({password:value}, {password:{presence:true}}, {format: "flat"}) || {};
     return result["password"];
 };
 
-export const validateConfirmPassword = (value) => {
-    var result = validate({confirmPassword: value}, constraints) || {};
-    return result["confirmPassword"];
-};
+
+export const validateConfirmPassword = (password, confirmPassword) => {
+    password = password||"";
+    confirmPassword = confirmPassword || "";
+
+    if ( confirmPassword === '') {
+        return "is required";
+    }
 
 
-export const validatePasswordAndConfirmPassword = (password, confirmPassword) => {
-    return true;
+    if (password!=confirmPassword) {
+        return "Password and Confirm password don't match"
+    }
+
+    return "";
 };

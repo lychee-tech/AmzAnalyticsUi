@@ -1,56 +1,57 @@
-import validate from "validate.js";
-validate.validators.presence.message = "is required";
+import stringChecker from "../shared/validation/stringChecker";
+import contactChecker from "../shared/validation/contactChecker";
 
 
-
+//account is required
 export const validateAccount = (value) => {
-    var result = validate({account: value}, {account:{presence:true}}, {format: "flat"}) || {};
-    return result["account"];
+    if (stringChecker.isBlank(value)) {
+        return "is required";
+    } else {
+        return undefined;
+    }
 };
 
 //user should enter at least email or phone
 export const validateEmail = (email, phone) => {
-    email=(email||"").trim();
-    phone=(phone||"").trim();
-
-
-    if (email==='' && phone==='') {
-        return "email is required"
+    if (stringChecker.isBlank(email) && stringChecker.isBlank(phone)) {
+        return "contact is required";
     }
 
-    return validate({email: email}, {email: {email: {message:"^invalid email"}}}, {format: "flat"}) || {};
+    if (! contactChecker.isValidEmail(email)){
+        return "invalid email";
+    } else {
+        return undefined;
+    }
 };
 
 
 export const validatePhone = (email, phone) => {
-    email=(email||"").trim();
-    phone=(phone||"").trim();
-
-
-    if (email==='' && phone==='') {
-        return "phone is required"
+    if (stringChecker.isBlank(email) && stringChecker.isBlank(phone)) {
+        return "contact is required";
     }
 };
 
 
+//password is required
 export const validatePassword =(value) => {
-    let password = (value||"").trim();
-    return password===''? "is required": undefined;
+    if (stringChecker.isBlank(value)) {
+        return "password is required";
+    }
 };
 
-
+//confirm password is required, must match password
 export const validateConfirmPassword = (password, confirmPassword) => {
     password = password||"";
     confirmPassword = confirmPassword || "";
 
-    if ( confirmPassword === '') {
-        return "is required";
+    if (stringChecker.isBlank(confirmPassword)) {
+        return "confirm password is required";
     }
 
 
     if (password!=confirmPassword) {
         return "Password and Confirm password don't match"
+    } else {
+        return undefined;
     }
-
-    return undefined;
 };

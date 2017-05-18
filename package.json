@@ -4,6 +4,7 @@
   "description": "study next.js",
   "main": "index.js",
   "dependencies": {
+    "email-validator": "^1.0.7",
     "next": "^2.2.0",
     "next-redux-wrapper": "^1.0.0",
     "nprogress": "^0.2.0",
@@ -14,8 +15,7 @@
     "redux-form": "^6.7.0",
     "redux-thunk": "^2.1.0",
     "semantic-ui-css": "^2.2.10",
-    "semantic-ui-react": "^0.68.2",
-    "validate.js": "^0.11.1"
+    "semantic-ui-react": "^0.68.2"
   },
   "devDependencies": {},
   "scripts": {

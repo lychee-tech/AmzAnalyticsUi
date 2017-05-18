@@ -1,23 +1,21 @@
-import validate from "validate.js";
-validate.validators.presence.message = "is required";
+import stringChecker from "../shared/validation/stringChecker";
 
 
-var constraints ={
-    account: {
-        presence: true
-    },
-    password: {
-        presence:true
+//account is required
+export const validateAccount=(value) => {
+    if (stringChecker.isBlank(value)) {
+        return "account is required";
+    } else {
+        return undefined;
     }
 };
 
-export const validateAccount=(value) => {
-    var result= validate({account:value}, constraints) || {};
-    return  result["account"];
-};
 
-
+//password is required
 export const validatePassword=(value) => {
-    var result= validate({password:value}, constraints) || {};
-    return result["password"];
+    if (stringChecker.isBlank(value)) {
+        return "password is required";
+    } else {
+        return undefined;
+    }
 };

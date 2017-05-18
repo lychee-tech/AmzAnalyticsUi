@@ -9,22 +9,33 @@ export const validateAccount = (value) => {
 };
 
 //user should enter at least email or phone
-export const validateContact = (email, phone) => {
+export const validateEmail = (email, phone) => {
     email=(email||"").trim();
     phone=(phone||"").trim();
 
 
     if (email==='' && phone==='') {
-        return "is required"
+        return "email is required"
     }
 
-    return validate({email: email}, {email: {email:true}}, {format: "flat"}) || {};
-
+    return validate({email: email}, {email: {email: {message:"^invalid email"}}}, {format: "flat"}) || {};
 };
 
+
+export const validatePhone = (email, phone) => {
+    email=(email||"").trim();
+    phone=(phone||"").trim();
+
+
+    if (email==='' && phone==='') {
+        return "phone is required"
+    }
+};
+
+
 export const validatePassword =(value) => {
-    var result = validate({password:value}, {password:{presence:true}}, {format: "flat"}) || {};
-    return result["password"];
+    let password = (value||"").trim();
+    return password===''? "is required": undefined;
 };
 
 
@@ -41,5 +52,5 @@ export const validateConfirmPassword = (password, confirmPassword) => {
         return "Password and Confirm password don't match"
     }
 
-    return "";
+    return undefined;
 };

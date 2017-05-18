@@ -3,7 +3,7 @@ import {Form, Header, Button,Message} from "semantic-ui-react";
 import {Field, reduxForm} from "redux-form";
 import {renderInputField} from "../shared/render";
 
-import {validateAccount, validateContact, validatePassword, validateConfirmPassword} from "./validators";
+import {validateAccount, validateEmail, validatePhone,validatePassword, validateConfirmPassword} from "./validators";
 
 var RegisterForm = ({handleSubmit, submitting, error, invalid}) => {
     return (
@@ -32,8 +32,8 @@ var RegisterForm = ({handleSubmit, submitting, error, invalid}) => {
                     <label>Contact</label>
 
                     <Form.Group widths='equal'>
-                        <Field name="email"  placeholder="email" type="text"  component={renderInputField}  validate={(value,values)=>validateContact(values['email'], values['phone'])} />
-                        <Field name="phone"  placeholder="phone" type="phone" component={renderInputField}  validate={(value,values)=>validateContact(values['email'], values['phone'])} />
+                        <Field name="email"  placeholder="email" type="text"  component={renderInputField}  validate={(value,values)=>validateEmail(values['email'], values['phone'])} />
+                        <Field name="phone"  placeholder="phone" type="phone" component={renderInputField}  validate={(value,values)=>validatePhone(values['email'], values['phone'])} />
                     </Form.Group>
                 </Form.Field>
 

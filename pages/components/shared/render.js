@@ -1,4 +1,4 @@
-import {Form} from "semantic-ui-react";
+import {Input} from "semantic-ui-react";
 
 
 const renderError = (error) => {
@@ -12,8 +12,8 @@ const renderError = (error) => {
 };
 
 export const renderInputField = ({input, placeholder = "", type, meta: {touched, error, warning}}) => (
-    <div  className="ui field">
-        <Form.Input {...input} placeholder={placeholder} type={type}/>
+    <div  className="field">
+        <Input {...input} placeholder={placeholder} type={type}/>
         {renderError(error)}
     </div>
 );

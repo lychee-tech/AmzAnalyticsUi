@@ -5,7 +5,7 @@ const renderError = (error) => {
     console.log(error);
 
     return (!!error && error.indexOf("is required") < 0 ) ? (
-        <div className="ui  pointing  up red basic label">
+        <div className="ui red text">
             {error}
         </div>
     ) : "";

@@ -39,3 +39,7 @@ html,body {
 .ui.right.aligned {
     text-align: right;
 }
+
+.ui.red.text{
+    color:red;
+}

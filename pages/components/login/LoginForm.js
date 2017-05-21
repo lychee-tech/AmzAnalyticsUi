@@ -31,7 +31,7 @@ var LoginForm = ({handleSubmit, submitting, error, invalid}) => {
 
 
                 <Form.Field className="ui right aligned">
-                    <Button  disabled={submitting || invalid} className="ui  primary button" type="submit">Submit</Button>
+                    <Button  disabled={submitting || invalid} primary={true} type="submit">Submit</Button>
                 </Form.Field>
 
             </Form>

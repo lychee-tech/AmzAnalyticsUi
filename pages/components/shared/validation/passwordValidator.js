@@ -1,4 +1,4 @@
-export const confirmedPasswordMatchPassword=(password, confirmedPassword) => {
+export const confirmPasswordMatchPassword=(password, confirmPassword) => {
     password = password||"";
     confirmPassword = confirmPassword || "";
 

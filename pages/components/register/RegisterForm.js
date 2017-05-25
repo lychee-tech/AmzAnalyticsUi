@@ -5,7 +5,7 @@ import {renderInputField} from "../shared/render";
 
 import {required} from "../shared/validation/stringValidator";
 import {email, phone} from "../shared/validation/contactValidator";
-import {confirmedPasswordMatchPassword} from "../shared/validation/passwordValidator";
+import {confirmPasswordMatchPassword} from "../shared/validation/passwordValidator";
 
 var RegisterForm = ({handleSubmit, submitting, error, invalid}) => {
     return (
@@ -52,7 +52,7 @@ var RegisterForm = ({handleSubmit, submitting, error, invalid}) => {
 
                 <Form.Field required>
                     <label>Confirm password</label>
-                    <Field name="confirmPassword"  type="password" component={renderInputField} validate={[required, (value, values)=>confirmedPasswordMatchPassword(values["password"], values["confirmPassword"])]} />
+                    <Field name="confirmPassword"  type="password" component={renderInputField} validate={[required, (value, values)=>confirmPasswordMatchPassword(values["password"], values["confirmPassword"])]} />
                 </Form.Field>
 
 

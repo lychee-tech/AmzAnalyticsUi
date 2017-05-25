@@ -3,7 +3,9 @@ import {Form, Header, Button,Message} from "semantic-ui-react";
 import {Field, reduxForm} from "redux-form";
 import {renderInputField} from "../shared/render";
 
-import {validateAccount, validateEmail, validatePhone,validatePassword, validateConfirmPassword} from "./validators";
+import {required} from "../shared/validation/stringValidator";
+import {email, phone} from "../shared/validation/contactValidator";
+import {confirmedPasswordMatchPassword} from "../shared/validation/passwordValidator";
 
 var RegisterForm = ({handleSubmit, submitting, error, invalid}) => {
     return (
@@ -14,7 +16,7 @@ var RegisterForm = ({handleSubmit, submitting, error, invalid}) => {
 
                 <Form.Field required>
                     <label>Account</label>
-                    <Field name="account" label="Account name" type="text" component={renderInputField} validate={validateAccount}  />
+                    <Field name="account" label="Account name" type="text" component={renderInputField} validate={[required]}  />
                 </Form.Field>
 
 
@@ -28,25 +30,29 @@ var RegisterForm = ({handleSubmit, submitting, error, invalid}) => {
                 </Form.Field>
 
 
-                <Form.Field required>
-                    <label>Contact</label>
+                <Form.Group widths="equal">
+                    <Form.Field required>
+                        <label>Email</label>
+                        <Field name="email" label="Email" type="text" component={renderInputField} validate={[required, email]}  />
+                    </Form.Field>
 
-                    <Form.Group widths='equal'>
-                        <Field name="email"  placeholder="email" type="text"  component={renderInputField}  validate={(value,values)=>validateEmail(values['email'], values['phone'])} />
-                        <Field name="phone"  placeholder="phone" type="phone" component={renderInputField}  validate={(value,values)=>validatePhone(values['email'], values['phone'])} />
-                    </Form.Group>
-                </Form.Field>
+                    <Form.Field >
+                        <label>Phone</label>
+                        <Field name="phone" label="Phone" type="text" component={renderInputField} validate={[phone]}  />
+                    </Form.Field>
+
+                </Form.Group>
 
 
                 <Form.Field required>
                     <label>Password</label>
-                    <Field name="password"   type="password" component={renderInputField}      validate={validatePassword} />
+                    <Field name="password"   type="password" component={renderInputField}      validate={[required]} />
                 </Form.Field>
 
 
                 <Form.Field required>
                     <label>Confirm password</label>
-                    <Field name="confirmPassword"  type="password" component={renderInputField} validate={(value, values)=>validateConfirmPassword(values["password"], values["confirmPassword"])} />
+                    <Field name="confirmPassword"  type="password" component={renderInputField} validate={[required, (value, values)=>confirmedPasswordMatchPassword(values["password"], values["confirmPassword"])]} />
                 </Form.Field>
 
 

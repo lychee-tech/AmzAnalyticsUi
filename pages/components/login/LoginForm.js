@@ -2,7 +2,7 @@ import React from "react";
 import {Form, Header, Button,Message} from "semantic-ui-react";
 import {Field, reduxForm} from "redux-form";
 
-import {required} from "../shared/validation/StringValidator";
+import {required} from "../shared/validation/stringValidator";
 
 
 

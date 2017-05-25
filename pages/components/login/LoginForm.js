@@ -1,8 +1,13 @@
 import React from "react";
 import {Form, Header, Button,Message} from "semantic-ui-react";
 import {Field, reduxForm} from "redux-form";
-import {validateAccount, validatePassword} from "./validators";
+
+import {required} from "../shared/validation/StringValidator";
+
+
+
 import {renderInputField} from "../shared/render";
+
 
 
 
@@ -15,12 +20,12 @@ var LoginForm = ({handleSubmit, submitting, error, invalid}) => {
 
                 <Form.Field>
                     <label>Account </label>
-                    <Field name="account" type="text" component={renderInputField}  validate={validateAccount}/>
+                    <Field name="account" type="text" component={renderInputField}  validate={[required]}/>
                 </Form.Field>
 
                 <Form.Field>
                     <label>Password</label>
-                    <Field name="password" type="password" component={renderInputField} validate={validatePassword} />
+                    <Field name="password" type="password" component={renderInputField} validate={[required]} />
                 </Form.Field>
 
 

@@ -43,3 +43,40 @@ html,body {
 .ui.red.text{
     color:red;
 }
+
+
+.page {
+    min-height:100vh;
+    flex-direction: column;
+}
+
+.layout {
+    width:100%;
+    height:100%;
+    display: flex;
+}
+
+.header {
+    min-height: 10px;
+    flex: none;
+    background-color: blue;
+}
+
+.content {
+    flex:1;
+    min-height:900px;
+    background-color: yellow;
+
+}
+
+.sider {
+    min-width: 10px;
+    flex:none;
+    background-color: red;
+}
+
+.footer {
+    min-height: 10px;
+    flex:none;
+    background-color: blue;
+}

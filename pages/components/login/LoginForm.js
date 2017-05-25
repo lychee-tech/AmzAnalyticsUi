@@ -3,11 +3,7 @@ import {Form, Header, Button,Message} from "semantic-ui-react";
 import {Field, reduxForm} from "redux-form";
 
 import {required} from "../shared/validation/stringValidator";
-
-
-
 import {renderInputField} from "../shared/render";
-
 
 
 

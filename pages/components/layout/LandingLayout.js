@@ -5,6 +5,7 @@ import {Menu, Icon, Image} from "semantic-ui-react";
 import {Layout, Header, Content, Footer} from "./Layout";
 
 
+
 export default ({children}) => (
 
     <Layout className="page">
@@ -21,7 +22,6 @@ export default ({children}) => (
             <Menu pointing className="ui  inverted" >
                 <div className="ui container aligned right">
                     <Menu.Item>
-                        <Image src="/static/images/HandAcc-logo.png" size="tiny"/>
                         <Link href="/">
                             <a> <Icon name="home" size="large"></Icon> </a>
                         </Link>

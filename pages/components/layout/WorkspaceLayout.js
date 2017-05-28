@@ -17,6 +17,11 @@ export default ({children})=> (
         <Header>
             <Menu pointing className="ui inverted ">
                 <div className="ui container">
+                    <Menu.Item>
+                        <Link href="/">
+                            <a> <Icon name="home" size="large"></Icon> </a>
+                        </Link>
+                    </Menu.Item>
                     <Menu.Item name='Amazon account' active={true}/>
                     <Menu.Item name='Dashboard'/>
 

@@ -39,11 +39,13 @@ export default ({children}) => (
         </Header>
 
         <Content>
-            {children}
+            <div className="ui container">
+                {children}
+            </div>
         </Content>
 
-        <Footer className="ui inverted main footer segment">
 
+        <Footer className="ui inverted main footer segment">
             <div className="ui container center">
                 footer
             </div>

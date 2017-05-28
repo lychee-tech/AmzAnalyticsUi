@@ -1,11 +1,12 @@
 import React from "react";
 import Head from "next/head";
 import Link from "next/link";
-import {Menu, Dropdown, Icon, Image} from "semantic-ui-react";
+import {Menu, Icon, Image} from "semantic-ui-react";
+import {Header, Content, Footer} from "./Layout";
 
 export default ({children}) => (
 
-    <div className="canvas">
+    <div className="page">
         <Head>
             <link rel="stylesheet"
                   href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.2/semantic.css"></link>
@@ -14,36 +15,40 @@ export default ({children}) => (
 
         </Head>
 
-        <Menu pointing className="ui inverted main" fixed="top">
-            <div className="ui container aligned right">
-                <Menu.Item>
-                    <Image src="/static/images/HandAcc-logo.png" size="tiny"/>
-                    <Link href="/">
-                        <a> <Icon name="home" size="large"></Icon> </a>
-                    </Link>
-                </Menu.Item>
-                <Menu.Menu position='right'>
-                    <Menu.Item>
-                        <Link href="/register"> Register </Link>
-                    </Menu.Item>
-                    <Menu.Item>
-                        <Link href="/login"> Login </Link>
-                    </Menu.Item>
-                </Menu.Menu>
-            </div>
-        </Menu>
 
+        <Header>
+            <Menu pointing className="ui inverted main">
+                <div className="ui container aligned right">
+                    <Menu.Item>
+                        <Image src="/static/images/HandAcc-logo.png" size="tiny"/>
+                        <Link href="/">
+                            <a> <Icon name="home" size="large"></Icon> </a>
+                        </Link>
+                    </Menu.Item>
+                    <Menu.Menu position='right'>
+                        <Menu.Item>
+                            <Link href="/register"> Register </Link>
+                        </Menu.Item>
+                        <Menu.Item>
+                            <Link href="/login"> Login </Link>
+                        </Menu.Item>
+                    </Menu.Menu>
+                </div>
+            </Menu>
+        </Header>
 
-        <div className="ui container main content">
+        <Content>
             {children}
-        </div>
+        </Content>
 
-        <div className="ui inverted main footer segment">
-            <div className="ui container">
+        <Footer className="ui inverted main footer segment">
+
+            <div className="ui container center">
                 footer
             </div>
-        </div>
 
+        </Footer>
     </div>
+
 
 )

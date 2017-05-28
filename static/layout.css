@@ -10,8 +10,6 @@ html,body {
 
 .page {
     min-height:100vh;
-    display:flex;
-    flex-direction: column;
 }
 
 .layout {
@@ -21,7 +19,6 @@ html,body {
 }
 
 .header {
-    min-height: 10px;
     flex: none;
 }
 
@@ -39,6 +36,10 @@ html,body {
 .footer {
     min-height: 10px;
     flex:none;
+}
+
+.ui.menu {
+    border-radius: 0px !important;
 }
 
 

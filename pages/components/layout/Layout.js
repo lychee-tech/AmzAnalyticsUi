@@ -18,17 +18,18 @@ class Layout extends Component {
 
 
     render() {
-        var {children} = this.props;
+        var {children, className} = this.props;
         var style={};
         if (this.hasSider(children)) {
             style["flexDirection"] ="row"
         } else {
             style["flexDirection"] ="column"
         }
+        let css=[className, "layout"];
 
 
         return (
-            <div className="layout" style={style}>
+            <div className={css.join(" ")} style={style}>
                 {children}
             </div>
         );

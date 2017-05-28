@@ -2,11 +2,12 @@ import React from "react";
 import Head from "next/head";
 import Link from "next/link";
 import {Menu, Icon, Image} from "semantic-ui-react";
-import {Header, Content, Footer} from "./Layout";
+import {Layout, Header, Content, Footer} from "./Layout";
+
 
 export default ({children}) => (
 
-    <div className="page">
+    <Layout className="page">
         <Head>
             <link rel="stylesheet"
                   href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.2/semantic.css"></link>
@@ -17,7 +18,7 @@ export default ({children}) => (
 
 
         <Header>
-            <Menu pointing className="ui inverted main">
+            <Menu pointing className="ui  inverted" >
                 <div className="ui container aligned right">
                     <Menu.Item>
                         <Image src="/static/images/HandAcc-logo.png" size="tiny"/>
@@ -48,7 +49,7 @@ export default ({children}) => (
             </div>
 
         </Footer>
-    </div>
+    </Layout>
 
 
 )

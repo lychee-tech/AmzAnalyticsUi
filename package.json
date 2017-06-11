@@ -1,7 +1,7 @@
 {
-  "name": "exa",
+  "name": "www.leechi.amz.analytics.ui",
   "version": "1.0.0",
-  "description": "study next.js",
+  "description": "amazon analytics ui",
   "main": "index.js",
   "dependencies": {
     "email-validator": "^1.0.7",

@@ -21,7 +21,7 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p ${port}||3000",
     "postinstall":"next build"
   },
   "author": "wlin",

@@ -1,5 +1,10 @@
+
 function securityFilter (req, res) {
-    res.redirect("/login");
+    if (!req.session.userPassword) {
+        res.redirect("/login");
+    } else {
+        next()
+    }
 }
 
 

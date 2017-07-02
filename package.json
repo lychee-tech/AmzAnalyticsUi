@@ -6,6 +6,8 @@
   "dependencies": {
     "email-validator": "^1.0.7",
     "express": "^4.15.3",
+    "express-http-proxy": "^1.0.4",
+    "express-session": "^1.15.3",
     "next": "^2.2.0",
     "next-redux-wrapper": "^1.0.0",
     "nprogress": "^0.2.0",
@@ -16,9 +18,12 @@
     "redux-form": "^6.7.0",
     "redux-thunk": "^2.1.0",
     "semantic-ui-css": "^2.2.10",
-    "semantic-ui-react": "^0.68.2"
+    "semantic-ui-react": "^0.68.2",
+    "url": "^0.11.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "body-parser": "^1.17.2"
+  },
   "scripts": {
     "dev": "  node ./server/server.js",
     "build": "next build",

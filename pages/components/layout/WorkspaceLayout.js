@@ -39,7 +39,11 @@ export default ({children})=> (
                             </Dropdown.Menu>
                         </Dropdown>
 
-                        <Menu.Item name='Logout'/>
+                        <Menu.Item name='Logout'>
+                            <Link>
+                                <a href="/"> Logout </a>
+                            </Link>
+                        </Menu.Item>
                         <Menu.Item>
                             <Link>
                                 <a href="/home"> <Icon name="mail outline"/> </a>

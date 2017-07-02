@@ -1,12 +1,19 @@
 
 function login(req, res) {
-    //console.log(req.body);
-    //console.log(req.session);
+   var credential = {
+       user: req.body.user,
+       password: req.body.password
+   };
 
-    console.log(req.sessionID);
-    console.log(req.session.greeting);
-    req.session.greeting = "hello";
-    res.end("{}");
+   //do authentication
+    var response ={
+        code:0,
+        error:""
+    };
+
+    //if successful
+    req.session.credential = credential;
+    res.send(JSON.stringify(response));
 }
 
 

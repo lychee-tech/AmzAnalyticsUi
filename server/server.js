@@ -23,16 +23,16 @@ app.prepare()
     .then(() => {
         const server = express();
 
-        server.use(session({
-            secret: 'keyboard cat',
-            resave: false,
-            saveUninitialized: true,
-            cookie: {secure: false, maxAge: 60000 }
-        }));
         server.use(bodyParser.urlencoded({ extended: false }));
         server.use(bodyParser.json());
-        server.use("/secured/*", securityFilter);
+        server.use(session({
+            secret: 'keyboard cat',
+            resave: true,
+            saveUninitialized: true,
+            cookie: { secure: false }
+        }));
 
+        server.use("/secured/*", securityFilter);
         server.all("/api/*", apiProxyManager.getApiProxy());
         server.post("/login", loginService);
         server.all('*', (req, res) => {

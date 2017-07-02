@@ -6,6 +6,7 @@ import LandingLayout from "./components/layout/LandingLayout";
 import LoginForm from "./components/login/LoginForm";
 
 import {SubmissionError} from "redux-form"
+import Router from 'next/router'
 
 import NProgress from "nprogress";
 
@@ -13,20 +14,21 @@ import NProgress from "nprogress";
 var submit = (value)=> {
     return fetch("/login", {
         method: 'POST',
+        credentials: 'include',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({ hungry: true })
+    }).then(function(response) {
+       if (response.ok) {
+            Router.push("/secured/home");
+           return;
+       }
+
+       response.json(function(error) {
+           reject(new SubmissionError({_error: error.error}));
+       })
     });
-
-    /*
-    return new Promise(function(resolve, reject){
-        setTimeout(()=>{
-            reject(new SubmissionError({_error: 'Can not find the account and password combination' }));
-        }, 1000);
-
-
-    })*/
 };
 
 

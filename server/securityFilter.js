@@ -1,13 +1,6 @@
-
-function checkSecurity(path, res) {
-    path =  path || "";
-    if (path.startsWith("/secure")) {
-        res.redirect("/");
-    }
+function securityFilter (req, res) {
+    res.redirect("/login");
 }
 
-const securityFilter = {
-    checkSecurity: checkSecurity
-};
 
-export default securityFilter;
+module.exports= securityFilter;

@@ -19,9 +19,9 @@
   },
   "devDependencies": {},
   "scripts": {
-    "dev": "next",
+    "dev":   "next",
     "build": "next build",
-    "start": "NODE_ENV=production  PORT=${PORT} node ./server/server.js  ",
+    "start": "NODE_ENV=production  PORT=${port}  node ./server/server.js  ",
     "postinstall": "next build"
   },
   "author": "wlin",

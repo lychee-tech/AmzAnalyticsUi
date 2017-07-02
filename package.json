@@ -1,5 +1,5 @@
 {
-  "name": "www.leechi.amz.analytics.ui",
+  "name": "com.litchi.analytics.ui",
   "version": "1.0.0",
   "description": "amazon analytics ui",
   "main": "index.js",
@@ -21,8 +21,8 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start -p ${PORT}",
-    "postinstall":"next build"
+    "start": "NODE_ENV=production  PORT=${PORT} node ./server/server.js  ",
+    "postinstall": "next build"
   },
   "author": "wlin",
   "license": "ISC"

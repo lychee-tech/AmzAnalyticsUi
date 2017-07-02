@@ -19,10 +19,10 @@
     "redux-thunk": "^2.1.0",
     "semantic-ui-css": "^2.2.10",
     "semantic-ui-react": "^0.68.2",
-    "url": "^0.11.0"
+    "url": "^0.11.0",
+    "body-parser": "^1.17.2"
   },
   "devDependencies": {
-    "body-parser": "^1.17.2"
   },
   "scripts": {
     "dev": "  node ./server/server.js",

@@ -1,22 +1,27 @@
-const {createServer} = require('http');
-const {parse} = require('url');
+const express = require('express');
 const next = require('next');
+
 
 const dev = process.env.NODE_ENV !== 'production';
 const port = process.env.PORT || 3000;
-
-
 const app = next({dev});
 const handle = app.getRequestHandler();
 
+
+
 app.prepare().then(() => {
-    createServer((req, res) => {
-        const parsedUrl = parse(req.url, true);
+    const server = express();
 
-        handle(req, res, parsedUrl);
+    server.use("/secured/*", function(req, res){
+        res.redirect("/login");
+    });
 
-    }).listen(port, (err) => {
-            if (err) throw err;
-            console.log('> Ready on http://localhost:' + port);
+    server.use('*', (req, res) => {
+        return handle(req, res)
+    });
+
+    server.listen(port, (err) => {
+        if (err) throw err;
+        console.log('> Ready on http://localhost:'+port);
     })
 });

@@ -5,6 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "email-validator": "^1.0.7",
+    "express": "^4.15.3",
     "next": "^2.2.0",
     "next-redux-wrapper": "^1.0.0",
     "nprogress": "^0.2.0",
@@ -19,7 +20,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "dev":   "next",
+    "dev": "next",
     "build": "next build",
     "start": "NODE_ENV=production   node ./server/server.js  ",
     "postinstall": "next build"

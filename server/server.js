@@ -17,7 +17,7 @@ const handle = app.getRequestHandler();
 
 //filters
 const securityFilter = require("./securityFilter");
-const loginService   = require("./loginService");
+const loginRouter   = require("./loginRouter");
 
 app.prepare()
     .then(() => {
@@ -34,7 +34,7 @@ app.prepare()
 
         server.use("/secured/*", securityFilter);
         server.all("/api/*", apiProxyManager.getApiProxy());
-        server.post("/login", loginService);
+        server.use("/login", loginRouter);
         server.all('*', (req, res) => {
             return handle(req, res)
         });

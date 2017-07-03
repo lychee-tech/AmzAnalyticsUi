@@ -26,7 +26,7 @@ var submit = (value)=> {
        }
 
        response.json(function(error) {
-           reject(new SubmissionError({_error: error.error}));
+           throw new SubmissionError({_error: error.error});
        })
     });
 };

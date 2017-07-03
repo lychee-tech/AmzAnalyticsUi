@@ -3,6 +3,7 @@ import Head from "next/head";
 import Link from 'next/link'
 import {Menu, Dropdown, Icon} from "semantic-ui-react";
 import {Layout, Header, Content, Footer} from "./Layout";
+import LogoutMenu from "../login/LogoutMenu";
 
 
 export default ({children})=> (
@@ -39,11 +40,8 @@ export default ({children})=> (
                             </Dropdown.Menu>
                         </Dropdown>
 
-                        <Menu.Item name='Logout'>
-                            <Link>
-                                <a href="/"> Logout </a>
-                            </Link>
-                        </Menu.Item>
+                        <LogoutMenu/>
+
                         <Menu.Item>
                             <Link>
                                 <a href="/home"> <Icon name="mail outline"/> </a>

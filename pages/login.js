@@ -20,7 +20,7 @@ var submit = (value)=> {
     }).then(function (response) {
         if (response.ok) {
             Router.push("/secured/home");
-            return;
+            return true;
         }
 
         return response.json().then(function (error) {

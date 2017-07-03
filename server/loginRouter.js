@@ -10,11 +10,12 @@ router.post("/", function login(req, res) {
         //do authentication
         var response ={
             code:0,
-            error:""
+            message:"not implemented"
         };
 
         //if successful
         req.session.credential = credential;
+        res.status(400);
         res.send(JSON.stringify(response));
     }
 );

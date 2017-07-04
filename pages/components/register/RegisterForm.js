@@ -15,8 +15,8 @@ var RegisterForm = ({handleSubmit, submitting, error, invalid}) => {
             <Form onSubmit={handleSubmit} className="register-form" noValidate error={!!error}  loading= {submitting}>
 
                 <Form.Field required>
-                    <label>Account</label>
-                    <Field name="account" label="Account name" type="text" component={renderInputField} validate={[required]}  />
+                    <label>Login</label>
+                    <Field name="login"  type="text" component={renderInputField} validate={[required]}  />
                 </Form.Field>
 
 
@@ -33,12 +33,12 @@ var RegisterForm = ({handleSubmit, submitting, error, invalid}) => {
                 <Form.Group widths="equal">
                     <Form.Field required>
                         <label>Email</label>
-                        <Field name="email" label="Email" type="text" component={renderInputField} validate={[required, email]}  />
+                        <Field name="email" type="text" component={renderInputField} validate={[required, email]}  />
                     </Form.Field>
 
                     <Form.Field >
                         <label>Phone</label>
-                        <Field name="phone" label="Phone" type="text" component={renderInputField} validate={[phone]}  />
+                        <Field name="phone" type="text" component={renderInputField} validate={[phone]}  />
                     </Form.Field>
 
                 </Form.Group>

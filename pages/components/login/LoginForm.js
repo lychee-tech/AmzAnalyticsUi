@@ -15,8 +15,8 @@ var LoginForm = ({handleSubmit, submitting, error, invalid}) => {
             <Form onSubmit={handleSubmit} className="login-form" noValidate error={!!error} loading= {submitting}>
 
                 <Form.Field>
-                    <label>Account </label>
-                    <Field name="account" type="text" component={renderInputField}  validate={[required]}/>
+                    <label>Login </label>
+                    <Field name="login" type="text" component={renderInputField}  validate={[required]}/>
                 </Form.Field>
 
                 <Form.Field>

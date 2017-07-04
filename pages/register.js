@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import fetch from "unfetch";
 import {initStore} from "./components/register/store";
 import withRedux from "next-redux-wrapper";
 import LandingLayout from "./components/layout/LandingLayout";
@@ -10,12 +11,35 @@ import NProgress from "nprogress";
 
 
 var submit = (value)=> {
-    return new Promise(function(resolve, reject){
-        setTimeout(()=>{
-            reject(new SubmissionError({_error: 'registration failed' }));
-        }, 1000)
-    })
+    var request = {
+        login: value.login,
+        firstName: value.firstName,
+        lastName: value.lastName,
+        email: value.email,
+        phone: value.phone,
+        password: value.password
+    };
+
+    return fetch("/api/accounts", {
+        method: 'POST',
+        credentials: 'include',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(request)
+    }).then(function (response) {
+        if (response.ok) {
+            Router.push("/login");
+            return true;
+        }
+
+        return response.json().then(function (error) {
+            throw new SubmissionError({_error: error.message});
+        });
+
+    });
 };
+
 
 
 class Register extends Component {

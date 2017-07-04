@@ -6,7 +6,7 @@ import LandingLayout from "./components/layout/LandingLayout";
 import RegisterForm from "./components/register/RegisterForm";
 
 import {SubmissionError} from "redux-form"
-
+import Router from "next/router";
 import NProgress from "nprogress";
 
 

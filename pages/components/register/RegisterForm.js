@@ -15,33 +15,9 @@ var RegisterForm = ({handleSubmit, submitting, error, invalid}) => {
             <Form onSubmit={handleSubmit} className="register-form" noValidate error={!!error}  loading= {submitting}>
 
                 <Form.Field required>
-                    <label>Login</label>
-                    <Field name="login"  type="text" component={renderInputField} validate={[required]}  />
+                    <label>Email</label>
+                    <Field name="email" type="text" component={renderInputField} validate={[required, email]}  />
                 </Form.Field>
-
-
-                <Form.Field>
-                    <label>Name</label>
-
-                    <Form.Group widths='equal'>
-                        <Field name="firstName" placeholder="first name" type="text" component={renderInputField}  />
-                        <Field name="lastName" placeholder="last name"  type="text" component={renderInputField}  />
-                    </Form.Group>
-                </Form.Field>
-
-
-                <Form.Group widths="equal">
-                    <Form.Field required>
-                        <label>Email</label>
-                        <Field name="email" type="text" component={renderInputField} validate={[required, email]}  />
-                    </Form.Field>
-
-                    <Form.Field >
-                        <label>Phone</label>
-                        <Field name="phone" type="text" component={renderInputField} validate={[phone]}  />
-                    </Form.Field>
-
-                </Form.Group>
 
 
                 <Form.Field required>

@@ -1,36 +1,36 @@
-var express= require("express");
+var express = require("express");
 var router = express.Router();
+import fetch from "unfetch";
+
 
 router.post("/", function login(req, res) {
-        var credential = {
-            user: req.body.user,
-            password: req.body.password
-        };
+        fetch("/api/login", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                "Authorization": req.header("Authorization")
+            }
+        }).then(function (response) {
+            console.log(respone.text());
 
-        //do authentication
-        var response ={
-            code:0,
-            message:""
-        };
-
-        //if successful
-        req.session.credential = credential;
-        res.send(JSON.stringify(response));
+            if (response.ok) {
+                req.session.authentication = {
+                    token: response.headers["Authorization"],
+                    principle: response.json()
+                };
+                res.send(JSON.stringify({}));
+            } else {
+                req.session.authentication = null;
+                res.send(response.text());
+            }
+        });
     }
 );
 
 router.delete("/", function (req, res) {
-    //do authentication
-    var response ={
-        code:0,
-        error:""
-    };
-
-    //if successful
-    req.session.credential = null;
-    res.send(JSON.stringify(response));
+    req.session.authentication = null;
+    res.send(JSON.stringify({}));
 });
-
 
 
 module.exports = router;

@@ -14,15 +14,16 @@ import NProgress from "nprogress";
  * submit will only be called from the browser side
  *
  */
-var submit = (value)=> {
-    var email = value.login;
-    var password = value.password;
 
+import httpHelp from "./help/httpHelp";
+
+var submit = (value)=> {
     return fetch("/login", {
         method: 'POST',
         credentials: 'include',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            "Authorization": httpHelp.buildHttpBasicCredential(value.login, value.password)
         }
     }).then(function (response) {
         if (response.ok) {

@@ -9,14 +9,22 @@ import Router from "next/router";
 import NProgress from "nprogress";
 
 
+/**
+ *
+ * submit will only be called from the browser side
+ *
+ */
+
+import httpHelp from "./help/httpHelp";
+
 var submit = (value)=> {
     return fetch("/login", {
         method: 'POST',
         credentials: 'include',
         headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({hungry: true})
+            'Content-Type': 'application/json',
+            "Authorization": httpHelp.buildHttpBasicCredential(value.login, value.password)
+        }
     }).then(function (response) {
         if (response.ok) {
             Router.push("/secured/home");
